@@ -4,8 +4,24 @@ services:
   basketdb:
     image: redis:alpine
 
+  discountdb:
+    image: postgres
+
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
     build:
       context: .
       dockerfile: Basket.API/Dockerfile
+
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+
+  portainer:
+    image: portainer/portainer-ce
+
+volumes:
+  portainer_data:
+  postgres_data:
