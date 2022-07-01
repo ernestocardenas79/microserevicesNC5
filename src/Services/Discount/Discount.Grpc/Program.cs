@@ -12,7 +12,9 @@ namespace Discount.Grpc
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            host.MigrateDatabase<Program>();
+            host.Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.
