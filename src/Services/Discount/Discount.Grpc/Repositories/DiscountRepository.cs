@@ -1,11 +1,8 @@
 ﻿using Dapper;
 using Discount.Grpc.Entities;
-using Discount.Grpc.Protos;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Discount.Grpc.Repositories
