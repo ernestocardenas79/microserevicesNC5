@@ -12,14 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\discount.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\discount.proto" GrpcServices="Server" ProtoCompile="true" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.47.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
     <PackageReference Include="Npgsql" Version="6.0.5" />
   </ItemGroup>
 

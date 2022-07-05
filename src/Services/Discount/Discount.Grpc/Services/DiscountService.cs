@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Discount.Grpc.Services
 {
-    public class DiscountService: DiscountProtoService.DiscountProtoServiceBase
+    public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
     {
         private readonly ILogger<DiscountService> _logger;
         private readonly IDiscountRepository repository;

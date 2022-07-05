@@ -18,7 +18,8 @@ namespace Basket.API.Controllers
         private readonly IBasketRepository repository;
         private readonly DiscountGrpcService discountGrpcService;
 
-        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService )
+        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService
+                                                            )
         {
             this.repository = repository;
             this.discountGrpcService = discountGrpcService;

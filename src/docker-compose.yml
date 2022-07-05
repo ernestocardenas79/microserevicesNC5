@@ -1,17 +1,32 @@
 version: '3.4'
 
 services:
+  catalogdb:
+    image: mongo
+
   basketdb:
     image: redis:alpine
 
   discountdb:
     image: postgres
 
+  pgadmin:
+    image: dpage/pgadmin4
+
+  portainer:
+    image: portainer/portainer-ce
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
     build:
       context: .
-      dockerfile: Basket.API/Dockerfile
+      dockerfile: Services/Basket.API/Dockerfile
 
   discount.grpc:
     image: ${DOCKER_REGISTRY-}discountgrpc
@@ -19,9 +34,8 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
-  portainer:
-    image: portainer/portainer-ce
-
 volumes:
+  mongo_data:
   portainer_data:
   postgres_data:
+  pgadmin_data:
