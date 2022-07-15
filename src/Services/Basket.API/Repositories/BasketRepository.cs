@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Basket.API.Repositories
 {
-    public class BasketRepository: IBasketRepository
+    public class BasketRepository : IBasketRepository
     {
         private readonly IDistributedCache _redisCache;
 
@@ -15,7 +15,8 @@ namespace Basket.API.Repositories
             _redisCache = redisCache ?? throw new ArgumentNullException(nameof(redisCache));
         }
 
-        public async Task<ShoppingCart> GetBasket(string userName) {
+        public async Task<ShoppingCart> GetBasket(string userName)
+        {
             var basket = await _redisCache.GetStringAsync(userName);
 
             if (String.IsNullOrEmpty(basket))
@@ -24,14 +25,16 @@ namespace Basket.API.Repositories
             return JsonConvert.DeserializeObject<ShoppingCart>(basket);
         }
 
-        public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket) {
+        public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket)
+        {
 
             await _redisCache.SetStringAsync(basket.UserName, JsonConvert.SerializeObject(basket));
 
             return await GetBasket(basket.UserName);
         }
 
-        public async Task DeleteBasket(string userName) {
+        public async Task DeleteBasket(string userName)
+        {
 
             await _redisCache.RemoveAsync(userName);
         }
