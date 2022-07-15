@@ -2,9 +2,7 @@
 using Basket.API.GrpcServices;
 using Basket.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -31,7 +29,7 @@ namespace Basket.API.Controllers
         {
             var basket = await repository.GetBasket(userName);
 
-            return Ok( basket ?? new ShoppingCart(userName));
+            return Ok(basket ?? new ShoppingCart(userName));
         }
 
         [HttpPut]

@@ -20,13 +20,13 @@ namespace Discount.Grpc.Repositories
         {
             Coupon coupon;
             using (var connection = new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString")))
-            { 
+            {
                 coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("SELECT * FROM Coupon WHERE ProductName = @ProductName", new { ProductName = productName });
 
-            if (coupon == null)
-                return new Coupon
-                { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
+                if (coupon == null)
+                    return new Coupon
+                    { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
             }
 
             return coupon;
@@ -61,7 +61,8 @@ namespace Discount.Grpc.Repositories
             return affected == 0;
         }
 
-        public async Task<bool> DeleteDiscount(string productName) {
+        public async Task<bool> DeleteDiscount(string productName)
+        {
             int affected;
             using (var connection = new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString")))
             {
