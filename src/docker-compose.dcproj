@@ -3,10 +3,12 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>c0279634-c9dd-4279-b485-3a6ce6c6851e</ProjectGuid>
     <ProjectGuid>1c00da53-2f1f-4379-a97b-379c8f776e16</ProjectGuid>
     <ProjectGuid>4c69635a-78cb-483e-923f-88384d9e84ee</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceName>shopping.aggregator</DockerServiceName>
     <DockerServiceName>catalog.api</DockerServiceName>
     <DockerServiceName>basket.api</DockerServiceName>
   </PropertyGroup>

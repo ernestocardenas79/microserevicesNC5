@@ -100,7 +100,6 @@ services:
   ordering.api:
     container_name: ordering.api
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:OrderingConnectionDB=Server=orderdb;Database=OrderDb;User Id=sa;Password=UglyDuck22!;"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
@@ -109,3 +108,8 @@ services:
     ports:
       - "8004:80"
 
+  shopping.aggregator:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8005:80"
