@@ -44,7 +44,7 @@ services:
     image: ${DOCKER_REGISTRY-}orderingapi
     build:
       context: .
-    dockerfile: Services/Ordering/Ordering.API/Dockerfile
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
   
   shopping.aggregator:
     image: ${DOCKER_REGISTRY-}shoppingaggregator
@@ -52,9 +52,16 @@ services:
       context: .
       dockerfile: ApiGateways/Shopping.Aggregator/Dockerfile
       
+  ocelotapigw:
+    image: ${DOCKER_REGISTRY-}ocelotapigw
+    build:
+      context: .
+      dockerfile: ApiGateways/OcelotApiGw/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:
   postgres_data:
   pgadmin_data:
+
 

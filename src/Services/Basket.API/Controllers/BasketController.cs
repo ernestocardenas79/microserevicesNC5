@@ -29,9 +29,9 @@ namespace Basket.API.Controllers
             this.publishEndPoint = publishEndPoint;
         }
 
-        [HttpGet]
+        [HttpGet("{userName}")]
         [ProducesResponseType(typeof(IEnumerable<ShoppingCart>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ShoppingCart>> Getbasket(string userName)
+        public async Task<ActionResult<ShoppingCart>> Getbasket([FromRoute]string userName)
         {
             var basket = await repository.GetBasket(userName);
 
@@ -51,7 +51,7 @@ namespace Basket.API.Controllers
             return Ok(await repository.UpdateBasket(basket));
         }
 
-        [HttpDelete]
+        [HttpDelete("{userName}")]
         [ProducesResponseType(typeof(IEnumerable<ShoppingCart>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> DeleteBasket(string userName)
